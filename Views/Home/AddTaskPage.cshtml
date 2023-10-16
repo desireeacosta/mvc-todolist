@@ -1,0 +1,24 @@
+﻿@model Card
+
+@{
+    ViewData["Title"] = "Add new task";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/newtask.css" />
+</head>
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="Home" asp-action="AddCard" method="post" onsubmit="return validateForm()">
+    <div class="formContainer">
+        <label asp-for="Name"></label>
+        <input id="nameInput" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+        <button type="submit">Add Card</button>
+    </div>
+</form>
+
+@section scripts {
+    <script src="~/js/addCard.js"></script>
+}

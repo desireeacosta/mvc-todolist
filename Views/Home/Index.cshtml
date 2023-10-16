@@ -1,0 +1,32 @@
+﻿@model List<Card>
+
+@{
+    ViewData["Title"] = "ToDo List";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/indexstyles.css" />
+</head>
+
+<div class="indexContainer">
+    <h1>Todo List</h1>
+    <ul>
+        @foreach (var card in Model)
+        {
+            <li class="card">
+                @card.Name
+                <div class="cardOptions">
+                    <button class="delete-button" data-id="@card.Id">Delete</button>
+                    <button class="edit-button" data-id="@card.Id" data="@card.Name">Edit</button>
+                    <input class="task-checkbox" type="checkbox" data-id="@card.Id" checked="@card.Status" onclick="">
+                </div>
+            </li>
+        }
+    </ul>
+
+    @section scripts {
+        <script src="~/js/deleteCard.js"></script>
+        <script src="~/js/editCard.js"></script>
+        <script src="~/js/updateStatus.js"></script>
+    }
+</div>
